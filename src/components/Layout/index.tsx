@@ -1,17 +1,20 @@
-import React, { Children } from "react";
-import {GridLayout} from './styles';
-import MainHeader from "../MainHeader";
-import Aside from "../Aside";
-import Content from "../Content"
+import React from 'react';
 
-const Layout : React.FC = () => {
+import { Grid } from './styles';
 
-    return(
-        <GridLayout>
-        <MainHeader/>
-        <Aside/>
-        <Content/>
-        </GridLayout>
-    )
-}
+import MainHeader from '../MainHeader';
+import Aside from '../Aside';
+import Content from '../Content';
+
+const Layout: React.FC = ({ children }) => (
+    <Grid>
+        <MainHeader />
+        <Aside />
+        <Content>
+            { children }
+        </Content>
+    </Grid>
+);
+
+
 export default Layout;
