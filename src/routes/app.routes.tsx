@@ -1,20 +1,17 @@
-import React from "react";
+import React from 'react';
+import { Switch, Route } from 'react-router-dom';
 
-import {Route,Routes } from 'react-router-dom';
-import Layout from "../components/Layout";
+import Layout from '../components/Layout';
+import Dashboard from '../pages/Dashboard';
+import List from '../pages/List';
 
-import Dashbord from "../pages/dashbord";
-import List from "../pages/List";
-
-const ListRoutes: React.FC = () => (
-      
-        <Routes>
-        
-            <Route path= '/' element={<Layout/>} />
-        
-        </Routes>
-       
-   
+const AppRoutes: React.FC = () => (
+    <Layout>
+        <Switch>
+            <Route path="/" exact component={Dashboard} />
+            <Route path="/list/:type" exact component={List} />
+        </Switch>
+    </Layout>
 );
 
-export default ListRoutes;
+export default AppRoutes;
