@@ -1,19 +1,21 @@
-import React from "react";
-import { ThemeProvider } from "styled-components";
-import Global from "./styles/Global";
+import React from 'react';
+import { ThemeProvider } from 'styled-components';
+import GlobalStyles from './styles/GlobalStyles';
+
+import { useTheme } from './hooks/theme';
+
+import Routes from './routes';
 
 
-import dark from "./styles/themes/dark";
-import light from "./styles/themes/light";
-import AppRoute from "./routes";
 const App: React.FC = () => {
-    return(
-
-         <ThemeProvider theme={dark}>
-         <Global />   
-        <AppRoute/>
+    const {theme} = useTheme();
+    
+    return (
+        <ThemeProvider theme={theme}>
+            <GlobalStyles />
+            <Routes/>
         </ThemeProvider>
-    )
+    );
 }
 
 export default App;
